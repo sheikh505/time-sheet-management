@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="35154b51-0ea6-48e7-975e-b7327e593f1c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/attendences_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/attendences_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/employee_attendences_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/employee_attendences_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/users/registrations_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/users/registrations_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/seeds.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/seeds.rb" afterDir="false" />
-    </list>
+    <list default="true" id="35154b51-0ea6-48e7-975e-b7327e593f1c" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
     <ignored path="$PROJECT_DIR$/public/system/" />
@@ -602,7 +596,7 @@
       <workItem from="1570784617310" duration="30345000" />
       <workItem from="1571041937160" duration="23823000" />
       <workItem from="1571127446100" duration="25270000" />
-      <workItem from="1571213483146" duration="24849000" />
+      <workItem from="1571213483146" duration="25096000" />
     </task>
     <servers />
   </component>
@@ -612,10 +606,10 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="500571000" />
+    <option name="totallyTimeSpent" value="500818000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="-4" width="1301" height="772" extended-state="6" />
+    <frame x="65" y="-4" width="1301" height="772" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25179282" />
