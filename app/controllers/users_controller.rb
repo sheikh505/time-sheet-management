@@ -72,12 +72,6 @@ class UsersController < ApplicationController
   end
 
 
-  def users_data_list
-
-    
-  end
-
-
 
     def users_list
 
