@@ -12,12 +12,15 @@
 
 ActiveRecord::Schema.define(version: 2019_10_02_100923) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "attendences", force: :cascade do |t|
     t.date "datee"
     t.datetime "check_in"
     t.datetime "check_out"
     t.boolean "status"
-    t.integer "user_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_attendences_on_user_id"
@@ -32,8 +35,8 @@ ActiveRecord::Schema.define(version: 2019_10_02_100923) do
   end
 
   create_table "projects_users", id: false, force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "project_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "project_id", null: false
   end
 
   create_table "roles", force: :cascade do |t|
@@ -46,7 +49,7 @@ ActiveRecord::Schema.define(version: 2019_10_02_100923) do
     t.string "title"
     t.text "description"
     t.date "duedate"
-    t.integer "project_id"
+    t.bigint "project_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "state"
@@ -54,8 +57,8 @@ ActiveRecord::Schema.define(version: 2019_10_02_100923) do
   end
 
   create_table "tasks_users", id: false, force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "task_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "task_id", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -66,7 +69,7 @@ ActiveRecord::Schema.define(version: 2019_10_02_100923) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "role_id"
+    t.bigint "role_id"
     t.string "name"
     t.integer "age"
     t.string "gender"
@@ -79,4 +82,7 @@ ActiveRecord::Schema.define(version: 2019_10_02_100923) do
     t.index ["role_id"], name: "index_users_on_role_id"
   end
 
+  add_foreign_key "attendences", "users"
+  add_foreign_key "tasks", "projects"
+  add_foreign_key "users", "roles"
 end

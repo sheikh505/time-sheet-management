@@ -32,7 +32,7 @@ development:
   encoding: unicode
   database: sample_postgres_development
   pool: 5
-  username: zeeshan
+  username: postgres
   password: zee1122
 
   test:
@@ -41,8 +41,8 @@ development:
   encoding: unicode
   database: sample_postgres_test
   pool: 5
-  username: sample_postgres
-  password:
+  username: postgres
+  password: zee1122
 
   production:
 
@@ -50,8 +50,8 @@ development:
   encoding: unicode
   database: sample_postgres_production
   pool: 5
-  username: sample_postgres
-  password:
+  username: postgres
+  password: zee1122
 
 
 
