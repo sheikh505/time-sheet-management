@@ -13,9 +13,7 @@ gem 'jquery-rails'
 gem "font-awesome-rails"
 gem 'wkhtmltopdf-binary'
 gem 'bootstrap-datepicker-rails'
-
-
-
+gem "pg"
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
