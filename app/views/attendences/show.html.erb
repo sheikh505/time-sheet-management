@@ -1,0 +1,106 @@
+
+<section class="content-header">
+  <h1 style="margin-left: 230px;float: left">
+    Dashboard
+    <small>Control panel</small>
+  </h1>
+  <ol class="breadcrumb">
+    <li><a href="#"><i class="fa fa-dashboard"></i>Show Attendence</a></li>
+    <li class="active"><%= link_to 'Back', :back %></li>
+
+    <li class="active">Dashboard</li>
+
+  </ol>
+</section>
+
+
+
+
+<div class="container" >
+  <% if flash[:notice] %>
+    <div class="alert alert-success" id="success-alert" style="width:35%;height:50px;float:left;margin-left:200px">
+      <button type="button" class="close" data-dismiss="alert">x</button>
+      <strong>Success! </strong>
+      <%= notice %>
+    </div>
+  <% end %>
+  <% if flash[:error] %>
+    <div class="alert alert-danger" id="success-alert" style="width:35%;height:50px;float:left;margin-left:200px">
+      <button type="button" class="close" data-dismiss="alert">x</button>
+      <strong>ohh no! </strong>
+      <%= flash[:error] %>
+    </div>
+  <% end %>
+</div>
+
+<br>
+<br>
+
+<!--<div style="color: white;float:right;width:10%;margin-right:70px "><%#=link_to "Back", users_path, class:"btn btn-block btn-default btn-sm" %></div>-->
+<p id="notice"><%= notice %></p>
+
+
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-10 col-md-offset-2">
+      <div class="box">
+        <div class="box-header">
+          <h3 class="box-title"> user attendence </h3>
+
+          <div class="box-tools">
+
+
+            <div style="display:inline-block;float:left;margin-right: 10px; ">
+              <!--  <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">Find Attendence</button>-->
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+      <!-- /.box-header -->
+      <div >
+        <div class="box-body table-responsive no-padding" style="background-color: white">
+
+
+          <p>
+            <strong>Datee:</strong>
+            <%= @attendence.datee %>
+          </p>
+
+          <p>
+            <strong>Check in:</strong>
+            <%= @attendence.check_in %>
+          </p>
+
+          <p>
+            <strong>Check out:</strong>
+            <%= @attendence.check_out %>
+          </p>
+
+          <p>
+            <strong>Status:</strong>
+            <%= @attendence.status %>
+          </p>
+
+          <p>
+            <strong>User_id:</strong>
+            <%= @attendence.user.id %>
+          </p>
+
+
+          <%= link_to 'Edit', edit_attendence_path(@attendence), class:"btn btn-sm btn-success",style:"color:white" %> |
+          <%= link_to 'Back', attendences_path ,class:"btn btn-sm btn-primary",style:"color:white"%>
+
+
+        </div>
+      </div>
+      <!-- /.box-body -->
+    </div>
+    <!-- /.box -->
+
+  </div>
+</div>
+</div>

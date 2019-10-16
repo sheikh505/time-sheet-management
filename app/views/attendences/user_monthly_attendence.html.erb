@@ -1,0 +1,103 @@
+
+<section class="content-header">
+  <!--    <li><a href="#"><i class="fa fa-dashboard"></i> Show_Task</a></li>-->
+  <h6 style="float:right;margin-right: 60px"><%= link_to 'Back', :back %></h6>
+
+  <!--  <div class="dt-buttons" style="float:right;margin-right: 90px"><a class="dt-button buttons-print" tabindex="0" aria-controls="my_datatable" href="#"><span>Print</span></a></div>-->
+
+</section>
+<br>
+<br>
+
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-10 col-md-offset-2">
+      <div class="box">
+        <div class="box-header">
+          <h3 class="box-title"> User Attendence Report  </h3>
+
+          <div class="box-tools">
+
+
+            <div style="display:inline-block;float:left;margin-right: 10px; ">
+              <!--              <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">Find Attendence</button>-->
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+      <!-- /.box-header -->
+      <div >
+        <div class="box-body table-responsive custom-style custom-style_employee no-padding">
+          <table class="table table-hover" style="width: 100%">
+
+            <%if @user_attendences.present? %>
+              <tr>
+                <td>Total present:</td>
+
+                <td><%=  @user_present %> </td>
+
+              </tr>
+
+              <tr>
+                <td>Total Absent:</td>
+
+                <td><%=@user_absent%> </td>
+
+              </tr>
+
+              <tr>
+                <td>Total Attendence:</td>
+
+                <td><%=@user_totle_attendences %> </td>
+
+              </tr>
+
+            <%end %>
+
+            <tbody>
+            <tr>
+
+
+              <th class="a_show"> Date </th>
+              <th class="a_show"> check in </th>
+              <th class="a_show"> check out </th>
+              <th class="a_show">  Status </th>
+              <th colspan="3">   Action </th>
+
+            <% @user_attendences.each do |uu| %>
+
+              <tr>
+
+                <td><%=uu.datee %></td>
+                <td><%=uu.check_in unless uu.status == false%> </td>
+                <td><%=uu.check_out %> </td>
+                <td><%=uu.status %></td>
+                <td> <%=link_to "Show",attendence_path(uu),class:"btn btn-sm btn-primary", style:"color:white"%></td>
+                <%if current_user.role.name =="Admin" %>
+                  <td><%= link_to 'Edit', edit_attendence_path(uu),class:"btn btn-sm btn-warning",style:"color:white" %></td>
+                  <td><%= link_to 'Destroy', attendence_path(uu), method: :delete, data: { confirm: 'Are you sure?' } ,class:"btn btn-sm btn-danger",style:"color:white"%></td>
+
+                  <%end %>
+
+
+                  </tr>
+            <% end %>
+            </tbody></table>
+        </div>
+      </div>
+      <!-- /.box-body -->
+    </div>
+    <!-- /.box -->
+
+  </div>
+</div>
+
+
+
+</div>
+
+

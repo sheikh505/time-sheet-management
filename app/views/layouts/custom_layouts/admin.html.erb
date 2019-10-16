@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+
+
+<head>
+  <title>Wms</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= stylesheet_link_tag    'admin', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'admin', 'data-turbolinks-track': 'reload' %>
+
+
+</head>
+
+<body  class="hold-transition skin-blue sidebar-mini">
+
+
+
+
+
+
+<%= render "layouts/header/admin_header" %>
+<%= render "layouts/menu/admin_menu"%>
+
+<%=render "layouts/admin_panal_data" %>
+
+<div style="margin-left:200px;margin-top:200px">
+
+  <% flash.each do |key, value| %>
+
+    <div class="alert alert-<%= key %>"> <%= value %></div>
+
+  <% end %>
+
+</div>
+
+  <%= yield %>
+
+</body>
+</html>

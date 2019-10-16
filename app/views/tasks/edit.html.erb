@@ -1,0 +1,11 @@
+
+
+<%= render 'form', task: @task  %>
+
+
+
+
+<%if current_user.role.name=="Admin" %>>
+<%= link_to 'Show', @task %> |
+<%= link_to 'Back', tasks_path %>
+<%end %>

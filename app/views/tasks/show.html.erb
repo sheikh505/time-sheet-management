@@ -1,0 +1,198 @@
+
+
+<%if current_user.role.name=="Admin" %>
+
+<section class="content-header">
+  <h1 style="margin-left: 230px;float: left">
+    Dashboard
+    <small>Control panel</small>
+  </h1>
+  <ol class="breadcrumb">
+    <li><a href="#"><i class="fa fa-dashboard"></i> Show_Task</a></li>
+    <li class="active">Dashboard</li>
+    <li class="active"><%= link_to 'Back', :back %></li>
+  </ol>
+</section>
+
+<%end %>
+
+
+
+<div class="container" >
+  <% if flash[:notice] %>
+    <div class="alert alert-success" id="success-alert"  style="width:33%;height:50px;float:left;margin-left:200px">
+      <button type="button" class="close" data-dismiss="alert">x</button>
+      <strong>Success! </strong>
+      <%= notice %>
+    </div>
+  <% end %>
+  <% if flash[:error] %>
+    <div class="alert alert-danger" id="success-alert" style="width:27%;height:50px;float:left;margin-left:20px">
+      <button type="button" class="close" data-dismiss="alert">x</button>
+      <strong>ohh no! </strong>
+      <%= flash[:error] %>
+    </div>
+  <% end %>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<div style="color: white;float:right;margin-right: 80px"><%#=link_to "Back", users_path, class:"btn btn-sm btn-default" %></div>-->
+<br>
+<br>
+
+
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-10 col-md-offset-2">
+      <div class="box">
+        <div class="box-header">
+          <h3 class="box-title"> Task Show</h3>
+
+          <div class="box-tools">
+
+            <%#if params[:add]== "attendence" %>
+            <!-- <div style="display:inline-block;float:left;margin-right: 10px; ">-->
+            <!-- <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">Add Attendence</button>-->
+            <!--</div>-->
+            <%#end %>
+
+
+          </div>
+
+        </div>
+      </div>
+
+      <!-- /.box-header -->
+      <div >
+        <div class="box-body table-responsive no-padding">
+          <table class="table table-bordered" style="background-color: white">
+            <tbody><tr>
+
+              <th>Task id</th>
+              <th>Task Title</th>
+              <th>Project title</th>
+              <th>Task state</th>
+              <th>Task Due Date</th>
+              <th>Task description</th>
+
+              <%if current_user.role.name=="Admin" %>
+                <th>options</th>
+              <%end %>
+
+            </tr>
+            <tr>
+
+              <td><%= @task.id %></td>
+              <td><%= @task.title %></td>
+
+              <td><%= @task.project.title %></td>
+              <td><%= @task.state %></td>
+              <td><%= @task.duedate %></td>
+              <td><%= @task.description %></td>
+
+
+              <%if current_user.role.name== "Admin" %>
+
+                <td><%= link_to 'Edit', edit_task_path(@task),class:"btn btn-warning btn-sm btn-block" %>
+                  <%#= link_to 'Back', tasks_path,class:"btn btn-default" %>
+                </td>
+              <%end %>
+
+            </tr>
+
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+      <!-- /.box-body -->
+    </div>
+    <!-- /.box -->
+  </div>
+</div>
+
+<br>
+
+
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-10 col-md-offset-2">
+      <div class="box">
+        <div class="box-header">
+          <h3 class="box-title"> Task Associated to User</h3>
+
+          <div class="box-tools">
+
+            <%#if params[:add]== "attendence" %>
+            <!-- <div style="display:inline-block;float:left;margin-right: 10px; ">-->
+            <!-- <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">Add Attendence</button>-->
+            <!--</div>-->
+            <%#end %>
+
+
+          </div>
+
+        </div>
+      </div>
+
+      <!-- /.box-header -->
+      <div >
+        <div class="box-body table-responsive no-padding">
+          <table class="table table-bordered" style="background-color: white">
+            <tbody><tr>
+
+              <th>Task id</th>
+              <th>Task Title</th>
+              <th>project Name </th>
+              <th>Task Associated </th>
+
+            </tr>
+            <tr>
+
+              <td><%= @task.id %></td>
+              <td><%= @task.title %></td>
+              <td><%=@task.project.title %></td>
+
+
+              <ul>
+                <td>
+                  <% @task.users.each do |task_user| %>
+                    <li><%=task_user.id %>  |||  <%=task_user.name %> </li>
+                  <% end %>
+                </td>
+              </ul>
+
+            </tbody></table>
+
+
+        </div>
+      </div>
+      <!-- /.box-body -->
+    </div>
+    <!-- /.box -->
+  </div>
+</div>
+

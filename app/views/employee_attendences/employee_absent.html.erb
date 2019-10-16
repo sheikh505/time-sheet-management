@@ -1,0 +1,356 @@
+
+<section class="content-header">
+  <!--    <li><a href="#"><i class="fa fa-dashboard"></i> Show_Task</a></li>-->
+  <h6 style="float:right;margin-right: 10px"><%= link_to 'Back', :back %></h6>
+
+</section>
+<br>
+
+
+
+
+<div class="container employee-attendence-overflow">
+
+  <div class="row">
+    <div class="col-md-10 col-md-offset-2">
+      <div class="box">
+        <div class="box-header">
+          <h3 class="box-title"> User Absent Report  </h3>
+
+          <div class="box-tools">
+
+
+            <div style="display:inline-block;float:left;margin-right: 10px; ">
+              <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">Find Attendence</button>
+            </div>
+
+
+
+          </div>
+
+        </div>
+      </div>
+
+      <!-- /.box-header -->
+      <div >
+        <div class="box-body table-responsive custom-style custom-style_employee no-padding">
+          <table class="table table-hover">
+
+            <%if @user_atendence_absent.present? %>
+              <tr>
+                <td>Total Present:</td>
+
+                <td><%=@user_present_count %> </td>
+
+              </tr>
+
+              <tr>
+                <td>Total Absent:</td>
+
+                <td><%=@user_absent_count %> </td>
+
+              </tr>
+            <%end %>
+
+
+
+            <tbody>
+            <tr>
+
+              <th class="a_show"> User id </th>
+              <th class="a_show"> Date </th>
+              <th class="a_show"> User Email</th>
+              <th class="a_show"> check in </th>
+              <th class="a_show"> check out </th>
+              <th class="a_show">  Status </th>
+              <th colspan="1">  Action </th>
+
+            </tr>
+
+
+            <%  @user_absentt.each do |uu| %>
+
+              <tr>
+                <td><%=uu.user.id %></td>
+                <td><%=uu.datee %></td>
+                <td><%=uu.user.email %></td>
+                <td><%=uu.check_in.time unless uu.status == false %> </td>
+                <td><%=uu.check_out  unless uu.status == false %> </td>
+                <td><%=uu.status %></td>
+
+              </tr>
+
+            <% end %>
+            </tbody></table>
+        </div>
+      </div>
+      <!-- /.box-body -->
+    </div>
+    <!-- /.box -->
+
+  </div>
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <!--  Model Body  content-->
+
+
+
+
+<div style="margin-top:40px" class="container">
+
+
+
+
+  <div class="modal fade" id="myModal"  role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Find Absent Monthly</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+
+
+          <%= form_tag find_absent_employee_attendences_path, method: :get  do %>
+            <%= hidden_field_tag :user_id, current_user.id %>
+
+            <%# debugger %>
+
+            <div class="form-group">
+              <label for="sel1">Month: </label>
+              <select name="month" class="form-control" id="sel1">
+
+                <option selected> Select Month</option>
+
+                <option value="1"> January   </option>
+                <option value="2"> faubery   </option>
+                <option value="3"> March   </option>
+                <option value="4"> April   </option>
+                <option value="5"> May  </option>
+                <option value="6"> June   </option>
+                <option value="7"> July   </option>
+                <option value="8"> Aguest   </option>
+                <option value="9"> September   </option>
+                <option value="10"> Octuber </option>
+                <option value="11"> November </option>
+                <option value="12"> December</option>
+
+              </select>
+            </div>
+
+
+            <div class="form-group">
+              <label for="sel1">Year: </label>
+              <select name="year" class="form-control" id="sel1">
+
+                <option selected> Select Year</option>
+
+                <option value="2017"> 2017   </option>
+                <option value="2018"> 2018  </option>
+                <option value="2019"> 2019   </option>
+
+              </select>
+            </div>
+
+            <%#= label_tag :Month %>
+            <%#= select_tag(:month, options_for_select([["january",1],["febury",2],["March",3],["April",4],["May",5],["June",6],["July",7],["Aguest",8],["September",9],["October",10],["November",11],["December",12]], params[:month] ), class:"select") %>
+            <%#= select_tag(:year, options_for_select([["2017",1],["2018",2],["2019",3]], params[:year] ), class:"select") %>
+
+            <%#=select_tag(:month, Date.today, options_for_select("Januar" ,"Februar", "March" ,"April" ,"May", "june" ,"july" ,"Auguest" ,"September" ,"October", "November", "December" ))%>
+            <%#= select_tag(:year, Date.today, :start_year => Date.today.year) %>
+
+            <div class="actions">
+              <br>
+              <%= submit_tag "find", class:"btn btn-info" %>
+            </div>
+
+          <% end %>
+
+        </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<table style="margin-top: 30px;margin-left: 200px;width: 60%" class="table">-->
+
+  <%#if @user_absent.any? %>
+<!--  <tr>-->
+<!--    <td>Total Present:</td>-->
+
+<!--    <td><%#=@user_present_count %> </td>-->
+
+<!--  </tr>-->
+
+<!--  <tr>-->
+<!--    <td>Total Absent:</td>-->
+
+<!--    <td><%#=@user_absent_count %> </td>-->
+
+<!--  </tr>-->
+<%#end %>
+
+
+<!--  <tr>-->
+<!--    <td>Total User Attendence:</td>-->
+
+<!--    <td><%#=@user_total_attendence %> </td>-->
+
+<!--  </tr>-->
+
+
+<!--  <tr>-->
+<!--    <th class="a_show"> User id </th>-->
+<!--    <th class="a_show"> Date </th>-->
+<!--    <th class="a_show"> User Email</th>-->
+<!--    <th class="a_show"> check in </th>-->
+<!--    <th class="a_show"> check out </th>-->
+<!--    <th class="a_show">  Status </th>-->
+
+<!--  </tr>-->
+
+  <%# @user_absent.each do |uu| %>
+
+<!--    <tr>-->
+
+<!--      <td><%#=uu.user.id %></td>-->
+<!--      <td><%#=uu.datee %></td>-->
+<!--      <td><%#=uu.user.email %></td>-->
+<!--      <td><%#=uu.check_in.time unless uu.status == false %> </td>-->
+<!--      <td><%#=uu.check_out  unless uu.status == false %> </td>-->
+<!--      <td><%#=uu.status %></td>-->
+
+<!--    </tr>-->
+
+  <%# end %>
+<!--</table>-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

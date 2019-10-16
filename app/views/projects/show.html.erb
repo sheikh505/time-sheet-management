@@ -1,0 +1,186 @@
+
+
+
+<%if current_user.role.name=="Admin" %>
+
+  <section class="content-header">
+    <h1 style="margin-left: 230px;float: left">
+      Dashboard
+      <small>Control panel</small>
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-dashboard"></i> Show_Project</a></li>
+      <li class="active">Dashboard</li>
+      <li class="active"><%= link_to 'Back', :back %></li>
+    </ol>
+  </section>
+
+<%end %>
+
+
+
+
+<div class="container" >
+  <% if flash[:notice] %>
+    <div class="alert alert-success" id="success-alert"  style="width:40%;height:50px;float:left;margin-left:400px">
+      <button type="button" class="close" data-dismiss="alert">x</button>
+<!--      <strong>Success! </strong>-->
+      <%= notice %>
+    </div>
+  <% end %>
+  <% if flash[:error] %>
+    <div class="alert alert-danger" id="success-alert" style="width:27%;height:50px;float:left;margin-left:20px">
+      <button type="button" class="close" data-dismiss="alert">x</button>
+      <strong>ohh no! </strong>
+      <%= flash[:error] %>
+    </div>
+  <% end %>
+</div>
+
+
+
+
+
+
+
+
+<div style="color: white;float:left;margin-left: 40px"><%=link_to "Back", users_path, class:"btn btn-sm btn-default" %></div>
+<br>
+
+
+
+
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-10 col-md-offset-2">
+      <div class="box">
+        <div class="box-header">
+          <h3 class="box-title">project</h3>
+
+          <div class="box-tools">
+
+            <%if params[:add]== "attendence" %>
+              <div style="display:inline-block;float:left;margin-right: 10px; ">
+                <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">Add Attendence</button>
+              </div>
+            <%end %>
+
+
+          </div>
+
+        </div>
+      </div>
+
+      <!-- /.box-header -->
+      <div >
+        <div class="box-body table-responsive no-padding">
+          <table class="table table-bordered" style="background-color: white">
+            <tbody><tr>
+
+              <th>Project id</th>
+
+              <th>Project Title</th>
+              <th>Start date:</th>
+
+              <th>Project description</th>
+
+              <th>options</th>
+
+            </tr>
+            <tr>
+
+              <td><%= @project.id %></td>
+              <td><%= @project.title %></td>
+              <td><%= @project.start_date %></td>
+              <td><%= @project.description %></td>
+              <td style="padding: 10px">
+
+                <%if current_user.role.name=="Admin" || current_user.role.name== "Manager" %>
+
+                  <%= link_to 'Task List',all_tasks_path(project_id:@project.id),class:"btn bt-sm btn-success",style:"color:white" %>
+
+                <%end %>
+
+                <%if current_user.role.name=="Admin" || current_user.role.name=="Admin" %>
+                  <%= link_to 'Edit', edit_project_path(@project),class:"btn bt-sm btn-warning",style:"color:white"  %>
+                  <!--            <%#= link_to 'Back', projects_path,class:"btn btn-info" %></td>-->
+                <%end %>
+
+            </tr>
+
+
+            </tbody></table>
+        </div>
+      </div>
+      <!-- /.box-body -->
+    </div>
+    <!-- /.box -->
+  </div>
+</div>
+
+<br>
+<br>
+
+
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-10 col-md-offset-2">
+      <div class="box">
+        <div class="box-header">
+          <h3 class="box-title">Project Associated to User</h3>
+
+          <div class="box-tools">
+
+            <%#if params[:add]== "attendence" %>
+<!--              <div style="display:inline-block;float:left;margin-right: 10px; ">-->
+<!--                <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">Add Attendence</button>-->
+<!--              </div>-->
+            <%#end %>
+
+
+          </div>
+
+        </div>
+      </div>
+
+      <!-- /.box-header -->
+      <div >
+        <div class="box-body table-responsive no-padding">
+          <table class="table table-bordered" style="background-color: white">
+            <tbody>
+            <tr>
+
+              <th>Project id</th>
+              <th>Project Title</th>
+              <th>Project User Id </th>
+            </tr>
+            <tr>
+
+              <td><%= @project.id %></td>
+              <td><%= @project.title %></td>
+
+              <ul>
+                <td>
+                  <% @project.users.each do |pro_user| %>
+                    <li><%=pro_user.id %>  |||  <%=pro_user.name %> </li>
+                  <% end %>
+                </td>
+              </ul>
+
+              <!--            <td style="padding: 10px">-->
+
+              <%#= link_to 'Edit', edit_project_path(@project),class:"btn btn-warning"  %>
+              <!--              <%#= link_to 'Back', projects_path,class:"btn btn-info" %></td>-->
+            </tr>
+
+            </tbody></table>
+
+        </div>
+      </div>
+      <!-- /.box-body -->
+    </div>
+    <!-- /.box -->
+  </div>
+</div>

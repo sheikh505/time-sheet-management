@@ -1,0 +1,73 @@
+
+
+<div class="register-box-body">
+  <p class="login-box-msg">Register a new Task of project</p>
+
+
+  <%= form_for(@task, local: true, url: assign_task_path) do |form| %>
+
+    <%# if task.errors.any? %>
+<!--      <div id="error_explanation">-->
+<!--        <h2><%#= pluralize(task.errors.count, "error") %> prohibited this task from being saved:</h2>-->
+
+<!--        <ul>-->
+          <%# task.errors.full_messages.each do |message| %>
+<!--            <li><%#= message %></li>-->
+          <%# end %>
+<!--        </ul>-->
+<!--      </div>-->
+    <%# end %>
+
+
+    <% if params[:action]== 'create' %>
+
+    <div class="form-group has-feedback">
+
+      <% unless params[:action] == "create" %>
+        <%=form.hidden_field  :project_id %>
+      <% end %>
+      <%= form.label :title %>
+      <%= form.text_field :title,class:"form-control" %>
+
+    </div>
+
+    <div class="form-group has-feedback">
+      <%= form.label :state %>
+      <%= form.text_field :state,class:"form-control" %>
+    </div>
+
+
+    <div class="form-group has-feedback">
+      <%= form.label :description %>
+      <%= form.text_area :description,class:"form-control" %>
+    </div>
+
+
+    <div class="form-group has-feedback">
+      <%= form.label :duedate %>
+      <%= form.date_select :duedate %>
+    </div>
+
+      <%end %>
+
+    <%# if  params[:assign_task].present? %>
+
+      <div class="form-group has-feedback">
+        <%= form.label :user_select %>
+        <%= collection_select(:tasks_users, :user_ids,@project_user ,:id,:name,{},:multiple => true) %>
+      </div>
+
+    <div class="form-group has-feedback">
+
+       <%=form.hidden_field :task_id,value: @task.id   %>
+
+    </div>
+
+    <%#end %>
+    <div class="actions">
+      <%= form.submit "create Task",class:"btn btn-block btn-success"  %>
+    </div>
+  <% end %>
+
+
+</div>

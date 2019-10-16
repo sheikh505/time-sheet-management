@@ -1,0 +1,126 @@
+
+<section class="content-header">
+  <!--    <li><a href="#"><i class="fa fa-dashboard"></i> Show_Task</a></li>-->
+  <h6 style="float:right;margin-right: 10px"><%= link_to 'Back', :back %></h6>
+
+</section>
+
+
+
+
+
+
+<br>
+
+<div class="container employee-attendence-overflow">
+
+  <div class="row">
+    <div class="col-md-10 col-md-offset-2">
+      <div class="box">
+        <div class="box-header">
+          <h3 class="box-title"> User Associated Project List  </h3>
+
+          <div class="box-tools">
+
+
+            <div style="display:inline-block;float:left;margin-right: 10px; ">
+              <!--              <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">Find Attendence</button>-->
+            </div>
+
+
+
+          </div>
+
+        </div>
+      </div>
+
+      <!-- /.box-header -->
+      <div >
+        <div class="box-body table-responsive custom-style no-padding">
+          <table class="table table-bordered" style="background-color: white">
+
+
+
+            <%if @user_project .present? %>
+
+              <tr>
+
+                <td><b><%=@user_project.count %> Project Assign to <%= current_user.name %> ! </b></td>
+
+              </tr>
+
+            <% end %>
+
+            <tbody>
+            <tr>
+
+              <th>Project id</th>
+
+              <th>Project Title</th>
+              <th>Start date:</th>
+
+              <th>Project description</th>
+
+              <th>options</th>
+
+            </tr>
+            <%@user_project.each do|user_project| %>
+              <tr>
+
+
+
+                <td><%= user_project.id %></td>
+                <td><%= user_project.title %></td>
+                <td><%= user_project.start_date %></td>
+                <td><%= user_project.description %></td>
+
+                <td style="padding: 10px"><%= link_to 'Task List',users_tasks_task_path(user_project),class:"btn btn-success",style:"color:white" %>
+                  <!--              <%#= link_to 'Back', projects_path,class:"btn btn-info" %>-->
+                </td>
+
+
+              </tr>
+            <%end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <!-- /.box-body -->
+    </div>
+    <!-- /.box -->
+
+  </div>
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

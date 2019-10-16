@@ -1,0 +1,273 @@
+
+<div class="container" >
+  <% if flash[:notice] %>
+    <div class="alert alert-success" id="success-alert" style="width:27%;height:50px;float:left;margin-left:20px">
+      <button type="button" class="close" data-dismiss="alert">x</button>
+      <strong>Success! </strong>
+      <%= notice %>
+    </div>
+  <% end %>
+  <% if flash[:error] %>
+    <div class="alert alert-danger" id="success-alert" style="width:27%;height:50px;float:left;margin-left:20px">
+      <button type="button" class="close" data-dismiss="alert">x</button>
+      <strong>Plz! </strong>
+      <%= flash[:error] %>
+    </div>
+  <% end %>
+</div>
+
+
+
+
+
+
+
+
+
+
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-10 col-md-offset-2">
+      <div class="box">
+        <div class="box-header">
+
+
+          <h3 class="box-title"> User Registration</h3>
+
+          <div class="box-tools">
+
+            <%#if params[:add]== "attendence" %>
+            <!-- <div style="display:inline-block;float:left;margin-right: 10px; ">-->
+            <!-- <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">Add Attendence</button>-->
+            <!--</div>-->
+            <%#end %>
+
+
+          </div>
+
+        </div>
+      </div>
+
+      <!-- /.box-header -->
+      <div >
+        <div class="box-body table-responsive no-padding">
+
+
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+            <%= render "devise/shared/error_messages", resource: resource %>
+
+
+            <form>
+
+              <div class="form-group row">
+
+                <% if params[:employee].present? %>
+
+                  <%=f.hidden_field :role_id, value: 3  %>
+
+                <% elsif params[:manager].present?%>
+
+                  <%=f.hidden_field :role_id, value: 2  %>
+
+                <% end  %>
+
+
+
+
+
+                <%= f.label :name, class:"col-sm-2 col-form-label"%>
+                <div class="col-sm-10">
+                  <%= f.text_field :name,class: 'form-control ',placeholder:"Full name"%>
+                </div>
+              </div>
+<!----->
+              <div class="form-group row">
+                <%= f.label :age, class:"col-sm-2 col-form-label"%>
+                <div class="col-sm-10">
+                  <%= f.text_field :age,class: 'form-control',placeholder:"Age"%>
+                </div>
+              </div>
+
+<!--->
+              <div class="form-group row">
+                <%= f.label :gender, class:"col-sm-2 col-form-label"%>
+                <div class="col-sm-10">
+                  <%= f.text_field :gender,class: 'form-control',placeholder:"Gender"%>
+                </div>
+              </div>
+
+<!--->
+              <div class="form-group row">
+                <%= f.label :city, class:"col-sm-2 col-form-label"%>
+                <div class="col-sm-10">
+                  <%= f.text_field :city,class: 'form-control',placeholder:"City"%>
+                </div>
+              </div>
+
+
+
+              <div class="form-group row">
+                <%= f.label :phone, class:"col-sm-2 col-form-label"%>
+                <div class="col-sm-10">
+                  <%= f.text_field :phone,class: 'form-control',placeholder:"Phone"%>
+                </div>
+              </div>
+
+
+
+              <div class="form-group row">
+                <%= f.label :address, class:"col-sm-2 col-form-label"%>
+                <div class="col-sm-10">
+                  <%= f.text_field :address,class: 'form-control',placeholder:"Address"%>
+                </div>
+              </div>
+
+
+              <div class="form-group row">
+                <%= f.label :image, class:"col-sm-2 col-form-label"%>
+                <div class="col-sm-10">
+                  <%= f.file_field :image,class: 'form-control',placeholder:"Image"%>
+                </div>
+              </div>
+
+
+              <div class="form-group row">
+                <%= f.label :email, class:"col-sm-2 col-form-label"%>
+                <div class="col-sm-10">
+                  <%= f.email_field  :email,class: 'form-control',placeholder:"Email"%>
+                </div>
+              </div>
+
+
+
+              <div class="form-group row">
+                <%= f.label :password, class:"col-sm-2 col-form-label"%>
+
+                <% if @minimum_password_length %>
+                  <em>(<%= @minimum_password_length %> characters minimum)</em>
+                <% end %><br />
+
+
+                <div class="col-sm-10">
+                  <%= f.password_field :password,class: 'form-control',placeholder:"Password"%>
+                </div>
+              </div>
+
+
+              <div class="form-group row">
+                <%= f.label :password_confirmation, class:"col-sm-2 col-form-label"%>
+                <div class="col-sm-10">
+                  <%= f.password_field :password_confirmation,class: 'form-control',placeholder:"Password-Confirmation"%>
+                </div>
+              </div>
+
+
+
+              <div class="form-group row">
+                <%= f.label :Submit, class:"col-sm-2 col-form-label"%>
+                <div class="col-sm-10">
+
+                  <%= f.submit "Sign up",class:"btn btn-primary btn-block btn-flat" %>
+                </div>
+              </div>
+
+            </form>
+
+
+<!--            <div class="form-group has-feedback ">-->
+
+<!--              <%#= f.label :name %><br />-->
+
+              <%#= f.text_field :name,class: 'form-control',placeholder:"Full name"%>
+<!--              <!--      <span class="glyphicon glyphicon-user form-control-feedback"></span>-->
+
+
+
+
+<!--            </div>-->
+
+
+
+
+
+<!--            <div class="form-group has-feedback">-->
+<!--              <%#= f.label :gender %><br />-->
+              <%#= f.text_field :gender,class: 'form-control',placeholder:"Gender"%>
+<!--              <!--      <span class="glyphicon glyphicon-phone-alt form-control-feedback"></span>-->
+<!--            </div>-->
+
+<!--            <div class="form-group has-feedback">-->
+<!--              <%#= f.label :city %><br />-->
+              <%#= f.text_field :city ,class: 'form-control',placeholder:"City"%>
+<!--              <!--      <span class="glyphicon glyphicon-phone-alt form-control-feedback"></span>-->
+<!--            </div>-->
+
+<!--            <div class="form-group has-feedback">-->
+<!--              <%#= f.label :phone %><br />-->
+              <%#= f.text_field :phone ,class: 'form-control',placeholder:"Mobile Number"%>
+<!--              <!--      <span class="glyphicon glyphicon-phone-alt form-control-feedback"></span>-->
+
+<!--            </div>-->
+<!--            <div class="form-group has-feedback">-->
+
+<!--              <%#= f.label :address %><br />-->
+              <%#= f.text_field :address ,class: 'form-control',placeholder:"Address"%>
+<!--              <!--      <span class="glyphicon  glyphicon-home form-control-feedback"></span>-->
+
+<!--            </div>-->
+<!--            <div class="form-group has-feedback">-->
+              <%#= f.label :image %>
+              <%#= f.file_field :image %>
+<!--            </div>-->
+
+
+<!--            <div class="form-group has-feedback">-->
+
+
+              <%# if params[:employee].present? %>
+
+                <%#=f.hidden_field :role_id, value: 3  %>
+
+              <%# elsif params[:manager].present?%>
+
+                <%#=f.hidden_field :role_id, value: 2  %>
+
+              <%# end  %>
+<!--              <%#= f.label :email %><br />-->
+              <%#= f.email_field :email, autofocus: true, autocomplete: "email" ,class: 'form-control',placeholder:"Email"%>
+<!--              <!--      <span class="glyphicon glyphicon-envelope form-control-feedback"></span>-->
+
+<!--            </div>-->
+
+<!--            <div class="form-group has-feedback">-->
+              <%#= f.label :password %>
+              <%# if @minimum_password_length %>
+<!--                <em>(<%#= @minimum_password_length %> characters minimum)</em>-->
+<!--              <%# end %><br />-->
+              <%#= f.password_field :password, autocomplete: "new-password",class: 'form-control', placeholder:"Password" %>
+<!--              <!--      <span class="glyphicon glyphicon-lock form-control-feedback"></span>-->
+<!--            </div>-->
+
+<!--            <div class="form-group has-feedback">-->
+<!--              <%#= f.label :password_confirmation %><br />-->
+              <%#= f.password_field :password_confirmation, autocomplete: "new-password",class: 'form-control',placeholder:"Retype password" %>
+<!--              <!--    <span class="glyphicon glyphicon-log-in form-control-feedback"></span>-->
+<!--            </div>-->
+
+<!--            <div class="actions">-->
+              <%#= f.submit "Sign up",class:"btn btn-primary btn-block btn-flat" %>
+<!--            </div>-->
+
+
+
+
+        </div>
+      </div>
+      <!-- /.box-body -->
+    </div>
+    <!-- /.box -->
+  </div>
+</div>
+
+          <% end %>

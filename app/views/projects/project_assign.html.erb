@@ -1,0 +1,126 @@
+
+
+<section class="content-header">
+  <h1 style="margin-left: 230px;float: left">
+    Dashboard
+    <small>Control panel</small>
+  </h1>
+  <ol class="breadcrumb">
+    <li><a href="#"><i class="fa fa-dashboard"></i>Assign Project</a></li>
+    <li class="active">Dashboard</li>
+  </ol>
+</section>
+<br>
+
+
+<br>
+<br>
+
+
+
+
+
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-10 col-md-offset-2">
+      <div class="box">
+        <div class="box-header">
+          <h3 class="box-title"> Project Assign to Users</h3>
+
+          <div class="box-tools">
+
+
+            <div style="display:inline-block;float:left;margin-right: 10px; ">
+              <!--  <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">Find Attendence</button>-->
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+      <!-- /.box-header -->
+      <div >
+        <div class="box-body table-responsive no-padding">
+
+          <%= form_for(@project, local: true, url: assign_project_user_project_path) do |form| %>
+
+            <%# if task.errors.any? %>
+            <!--      <div id="error_explanation">-->
+            <!--        <h2><%#= pluralize(task.errors.count, "error") %> prohibited this task from being saved:</h2>-->
+
+            <!--        <ul>-->
+            <%# task.errors.full_messages.each do |message| %>
+            <!--            <li><%#= message %></li>-->
+            <%# end %>
+            <!--        </ul>-->
+            <!--      </div>-->
+            <%# end %>
+
+            <% if params[:action]== 'create' %>
+
+              <div class="form-group has-feedback">
+
+                <% unless params[:action] == "create" %>
+                  <%=form.hidden_field  :project_id %>
+                <% end %>
+                <%= form.label :title %>
+                <%= form.text_field :title,class:"form-control" %>
+
+              </div>
+
+              <div class="form-group has-feedback">
+                <%= form.label :state %>
+                <%= form.text_field :state,class:"form-control" %>
+              </div>
+
+
+              <div class="form-group has-feedback">
+                <%= form.label :description %>
+                <%= form.text_area :description,class:"form-control" %>
+              </div>
+
+
+              <div class="form-group has-feedback">
+                <%= form.label :duedate %>
+                <%= form.date_select :duedate %>
+              </div>
+
+            <%end %>
+
+
+            <%# if  params[:assign_task].present? %>
+            <div class="form-group has-feedback">
+              <%= form.label :user_select %>
+              <%= collection_select(:projects_users, :user_ids, User.all , :id,:name,{},:multiple => true) %>
+            </div>
+
+            <div class="form-group has-feedback">
+
+              <%=form.hidden_field :project_id,value: @project.id   %>
+
+            </div>
+
+            <%#end %>
+            <div class="actions">
+              <%= form.submit "Assign Project",class:"btn btn-block btn-success"  %>
+            </div>
+          <% end %>
+
+        </div>
+      </div>
+      <!-- /.box-body -->
+    </div>
+    <!-- /.box -->
+
+  </div>
+</div>
+
+</div>
+
+
+
+
+
+

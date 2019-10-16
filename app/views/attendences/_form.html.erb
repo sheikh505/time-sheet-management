@@ -1,0 +1,130 @@
+
+<div class="container" >
+  <% if flash[:notice] %>
+    <div class="alert alert-success" id="success-alert"  style="width:35%;height:50px;float:left;margin-left:200px">
+      <button type="button" class="close" data-dismiss="alert">x</button>
+      <strong>Success! </strong>
+      <%= notice %>
+    </div>
+  <% end %>
+  <% if flash[:error] %>
+    <div class="alert alert-danger" id="success-alert" style="width:35%;height:50px;float:left;margin-left:200px">
+      <button type="button" class="close" data-dismiss="alert">x</button>
+      <strong>ohh no! </strong>
+      <%= flash[:error] %>
+    </div>
+  <% end %>
+</div>
+
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-10 col-md-offset-2">
+      <div class="box">
+        <div class="box-header">
+          <h3 class="box-title"> Add User Attendences </h3>
+
+          <div class="box-tools">
+
+
+            <div style="display:inline-block;float:left;margin-right: 10px; ">
+              <!--  <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">Find Attendence</button>-->
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+      <!-- /.box-header -->
+        <div class="box-body table-responsive custom-style_employee no-padding">
+
+          <%= form_with(model: attendence, local: true) do |form| %>
+
+            <%# if attendence.errors.any? %>
+            <!--    <div id="error_explanation">-->
+
+            <!--      <h2><%#= pluralize(attendence.errors.count, "error") %> prohibited this attendence from being saved:</h2>-->
+
+            <!--      <ul>-->
+            <%# attendence.errors.full_messages.each do |message| %>
+            <!--        <li><%#= message %></li>-->
+            <%# end %>
+            <!--      </ul>-->
+
+            <!--    </div>-->
+            <%# end %>
+
+            <%# flash.each do |key, value| %>
+            <!--        <div class="alert alert-<%#= key %>"><%#= value %></div>-->
+            <%# end %>
+            <div class="field custom-style_employee">
+
+              <%=form.hidden_field :user_id,value: current_user.id  %>
+              <%= form.label :datee %>
+              <%= form.date_select :datee,class:"form-control" %>
+
+            </div>
+
+             <% %>
+            <% if form.object.check_in.blank?  %>
+
+              <div class="field custom-style_employee">
+
+
+
+                <%= form.label :check_in %>
+                <%= form.time_select :check_in ,class:"form-control"%>
+              </div>
+
+            <% else %>
+
+              <div class="field  custom-style_employee">
+                <%= form.label :check_out %>
+                <%= form.time_select :check_out,class:"form-control" %>
+              </div>
+
+            <%end %>
+
+            <div class="field custom-style_employee">
+              <%= form.label :status %>
+              <%= form.check_box :status %>
+            </div>
+
+            <%if current_user.role.name == "Admin"  %>
+              <div class="field">
+                <%= form.label :user_id %>
+                <%=collection_select(:attendences, :user_id,User.all,:id ,:name,{},prompt: true ) %><%=current_user.email %>
+
+              </div>
+            <%end %>
+
+            <div class="actions custom-style_employee">
+              <%= form.submit "Create Attendence", class:"btn btn-primary" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <!-- /.box-body -->
+    </div>
+    <!-- /.box -->
+
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

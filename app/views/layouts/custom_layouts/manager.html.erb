@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Wms</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= stylesheet_link_tag    'manager', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'manager', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body  class="hold-transition skin-blue sidebar-mini">
+
+<%= render "layouts/header/manager_header" %>
+<%= render "layouts/menu/manager_menu"%>
+
+
+<%= yield %>
+</body>
+</html>

@@ -1,0 +1,178 @@
+
+<section class="content-header">
+  <!--    <li><a href="#"><i class="fa fa-dashboard"></i> Show_Task</a></li>-->
+  <li class="active" style="float:right;margin-right: 0px"><%= link_to 'Back', :back %></li>
+
+</section>
+<br>
+
+
+
+
+
+<!--<div class="row">-->
+<!--  <div class="col-xs-12">-->
+<!--    <div class="box">-->
+<!--      <div class="box-header">-->
+<!--        <h3 class="box-title">User absent List</h3>-->
+
+<!--        <div class="box-tools">-->
+
+
+<!--        </div>-->
+<!--      </div>-->
+<!--      <!-- /.box-header -->
+<!--      <div class="box-body table-responsive no-padding">-->
+<!--        <table class="table table-hover">-->
+
+          <%#if @user_attendence_absent.present? %>
+<!--            <tr>-->
+<!--              <td>Total Present:</td>-->
+
+<!--              <td><%#=@user_present_countt %> </td>-->
+
+<!--            </tr>-->
+
+<!--            <tr>-->
+<!--              <td>Total Absent:</td>-->
+
+<!--              <td><%#=@user_absent_countt %> </td>-->
+
+<!--            </tr>-->
+          <%#end %>
+
+
+
+<!--          <tbody>-->
+<!--          <tr>-->
+
+<!--            <th class="a_show"> User id </th>-->
+<!--            <th class="a_show"> Date </th>-->
+<!--            <th class="a_show"> User Email</th>-->
+<!--            <th class="a_show"> check in </th>-->
+<!--            <th class="a_show"> check out </th>-->
+<!--            <th class="a_show">  Status </th>-->
+
+
+<!--          </tr>-->
+
+
+          <%# @user_attendence_absent.each do |uu| %>
+
+<!--            <tr>-->
+
+<!--              <td><%#=uu.user.id %></td>-->
+<!--              <td><%#=uu.datee %></td>-->
+<!--              <td><%#=uu.user.email %></td>-->
+<!--              <td><%#=uu.check_in.time unless uu.status == false %> </td>-->
+<!--              <td><%#=uu.check_out  unless uu.status == false %> </td>-->
+<!--              <td><%#=uu.status %></td>-->
+
+<!--            </tr>-->
+
+          <%# end %>
+<!--          </tbody></table>-->
+<!--      </div>-->
+<!--      <!-- /.box-body -->
+<!--    </div>-->
+<!--    <!-- /.box -->
+<!--  </div>-->
+<!--</div>-->
+
+
+
+
+
+
+<br>
+
+
+
+
+
+<div class="container employee-attendence-overflow">
+
+  <div class="row">
+    <div class="col-md-10 col-md-offset-2">
+      <div class="box">
+        <div class="box-header">
+          <h3 class="box-title"> User Absent Report  </h3>
+
+          <div class="box-tools">
+
+
+            <div style="display:inline-block;float:left;margin-right: 10px; ">
+<!--              <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">Find Attendence</button>-->
+            </div>
+
+
+
+          </div>
+
+        </div>
+      </div>
+
+      <!-- /.box-header -->
+      <div >
+        <div class="box-body table-responsive custom-style custom-style_employee no-padding">
+          <table class="table table-hover">
+
+            <%if @user_attendence_absent.present? %>
+              <tr>
+                <td>Total Present:</td>
+
+                <td><%=@user_present_countt %> </td>
+
+              </tr>
+
+              <tr>
+                <td>Total Absent:</td>
+
+                <td><%=@user_absent_countt %> </td>
+
+              </tr>
+            <%end %>
+
+
+
+            <tbody>
+            <tr>
+
+              <th class="a_show"> User id </th>
+              <th class="a_show"> Date </th>
+              <th class="a_show"> User Email</th>
+              <th class="a_show"> check in </th>
+              <th class="a_show"> check out </th>
+              <th class="a_show">  Status </th>
+
+
+            </tr>
+
+
+            <% @user_attendence_absent.each do |uu| %>
+
+              <tr>
+
+                <td><%=uu.user.id %></td>
+                <td><%=uu.datee %></td>
+                <td><%=uu.user.email %></td>
+                <td><%=uu.check_in.time unless uu.status == false %> </td>
+                <td><%=uu.check_out  unless uu.status == false %> </td>
+                <td><%=uu.status %></td>
+
+              </tr>
+
+            <% end %>
+            </tbody></table>
+        </div>
+      </div>
+      <!-- /.box-body -->
+    </div>
+    <!-- /.box -->
+
+  </div>
+</div>
+
+
+
+</div>

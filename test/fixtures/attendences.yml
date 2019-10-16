@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  datee: 2019-09-20
+  check_in: 2019-09-20 17:35:22
+  check_out: 2019-09-20 17:35:22
+  status: false
+  user: one
+
+two:
+  datee: 2019-09-20
+  check_in: 2019-09-20 17:35:22
+  check_out: 2019-09-20 17:35:22
+  status: false
+  user: two
