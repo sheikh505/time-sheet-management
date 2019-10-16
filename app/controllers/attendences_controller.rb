@@ -22,8 +22,16 @@ class AttendencesController < ApplicationController
 
 
   def find_employee_attendence
-    @attendences = Attendence.where("cast(strftime('%m',datee) as int) = ? ", params[:month]).order('datee ').all
-    @attendences = @attendences.where("cast(strftime('%Y',datee) as int) = ? ", params[:year]).order('datee ASC').all
+
+    # @attendences = Attendence.where('extract(month from datee)') == params[:month]
+    @attendences = Attendence.where("extract(month from datee) = ?",params[:month]).order('datee').all
+    @attendences = @attendences.where("extract(year from datee) = ?",params[:year]).order('datee').all
+
+    # @attendences = Attendence.where("('%m',datee)) = ?",params[:month]).order('datee').all
+
+     # @attendences = Attendence.where("extract(strftime('%m',datee) as int) = ? ", params[:month]).order('datee ').all
+    # # @attendences = Attendence.where("cast(strftime('%m',datee) as int) = ? ", params[:month]).order('datee ').all
+    # @attendences = @attendences.where("(strftime('%Y',datee) as int) = ? ", params[:year]).order('datee ASC').all
 
   end
 
@@ -56,12 +64,15 @@ class AttendencesController < ApplicationController
   def user_monthly_attendence
 
     @user = User.find(params[:user_id])
+    @user_attendences = @user.attendences.where("extract(month from datee) = ?",params[:month]).order('datee').all
+    @user_attendences = @user_attendences.where("extract(year from datee) = ?",params[:year]).order('datee').all
 
-    @user_attendences = @user.attendences.where("cast(strftime('%m', datee) as int) = ?", params[:month] )
-    @user_attendences =  @user_attendences.where("cast(strftime('%Y', datee) as int) = ?", params[:year] )
     @user_present = @user_attendences.where(status: true).count
     @user_absent = @user_attendences.where(status: false).count
     @user_totle_attendences = @user_attendences.count
+
+      # @user_attendences = @user.attendences.where("cast(strftime('%m', datee) as int) = ?", params[:month] )
+      # @user_attendences =  @user_attendences.where("cast(strftime('%Y', datee) as int) = ?", params[:year] )
 
   end
 

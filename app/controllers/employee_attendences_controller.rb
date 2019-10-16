@@ -17,12 +17,16 @@ class EmployeeAttendencesController < ApplicationController
       # @atendenc_user = current_user.attendences.where('extract(month from datee) == params[:month]' )
      # @user_attendence = Attendence.where('extract(month from datee) == params[:month]')
 
-     @user_attendence = current_user.attendences.where("cast(strftime('%m',datee) as int) = ? ", params[:month])
-     @user_attendence =  @user_attendence.where("cast(strftime('%Y',datee) as int) = ? ", params[:year])
-     @user_count= @user_attendence.count
+     @user_attendences = current_user.attendences.where("extract(month from datee) = ?",params[:month]).order('datee').all
+     @user_attendences = @user_attendences.where("extract(year from datee) = ?",params[:year]).order('datee').all
 
-     @user_absent_count= @user_attendence.where(status: false).count
-     @user_present_count= @user_attendence.where(status: true).count
+
+
+     # @user_attendence = current_user.attendences.where("cast(strftime('%m',datee) as int) = ? ", params[:month])
+     # @user_attendence =  @user_attendence.where("cast(strftime('%Y',datee) as int) = ? ", params[:year])
+     @user_count= @user_attendences.count
+     @user_absent_count= @user_attendences.where(status: false).count
+     @user_present_count= @user_attendences.where(status: true).count
      # @user_total_attendence= current_user.attendences.count
      #  if current_user.present?
      #    #Create month wise groups of messages
@@ -51,9 +55,11 @@ class EmployeeAttendencesController < ApplicationController
     # @atendenc_user = current_user.attendences.where('extract(month from datee) == params[:month]' )
     # @user_attendence = Attendence.where('extract(month from datee) == params[:month]')
 
-    @user_attendence_absent = current_user.attendences.where("cast(strftime('%m', datee) as int) = ?", params[:month] )
-    @user_attendence_absent= @user_attendence_absent.where("cast(strftime('%Y',datee) as int) = ? ", params[:year])
+    # @user_attendence_absent = current_user.attendences.where("cast(strftime('%m', datee) as int) = ?", params[:month] )
+    # @user_attendence_absent= @user_attendence_absent.where("cast(strftime('%Y',datee) as int) = ? ", params[:year])
 
+    @user_attendence_absent = current_user.attendences.where("extract(month from datee) = ?",params[:month]).order('datee').all
+    @user_attendence_absent = @user_attendence_absent .where("extract(year from datee) = ?",params[:year]).order('datee').all
     @user_absent_countt = @user_attendence_absent.where(status:false).count
     @user_present_countt= @user_attendence_absent.where(status: true).count
     @user_total_attendence= @user_attendence_absent.count

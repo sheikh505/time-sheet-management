@@ -75,8 +75,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super(resource)
   # end
 
-
-
   protected
 
   def sign_up_params
@@ -88,15 +86,5 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
    params.require(:user).permit(:name,:image,:age,:gender,:city,:address,:phone,:position,:email,:password,:password_confirmation,:role_id)
  end
-
-
-
-
-
-
-
-
-
-
 
 end

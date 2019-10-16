@@ -9,4 +9,4 @@
 
 
 
-user=User.create  name:"Admin",age: 22 ,gender:"male" ,city:"lahore",phone:"03227579281",email:"admin@example.com", password:"111111", role_id: Role.where(name:"Admin").first.id
+user = User.create  name:"Admin",age: 22 ,gender:"male",address:"DHA" ,city:"lahore",phone:"03227579281",email:"admin@example.com", password:"111111", role_id: Role.where(name:"Admin").first.id
