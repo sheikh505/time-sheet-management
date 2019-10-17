@@ -13,6 +13,7 @@
 
 
 *= require bootstrap-datepicker
+*= require bootstrap/dropdown
 *= require _all-skins.min.css
 *= require AdminLTE.min.css
 *= require bootstrap.min.css
@@ -23,7 +24,6 @@
 *= require  morris.css
 *= require ionicons.min.css
 *= require custom.scss
-*= require jquery-jvectormap
 *= require custom.scss
 
  *= require_self
