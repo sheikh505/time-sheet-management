@@ -13,7 +13,6 @@
 
 
 *= require bootstrap-datepicker
-*= require bootstrap/dropdown
 *= require _all-skins.min.css
 *= require AdminLTE.min.css
 *= require bootstrap.min.css
