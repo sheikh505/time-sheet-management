@@ -1,20 +1,17 @@
 
-<%if params[:add_task] %>
-<section class="content-header">
-  <h1 style="margin-left: 230px;float: left">
-    Dashboard
-    <small>Control panel</small>
-  </h1>
-  <ol class="breadcrumb">
-    <li><a href="#"><i class="fa fa-dashboard"></i> Add Task</a></li>
-    <li class="active">Dashboard</li>
-    <li class="active"><%= link_to 'Back',users_path %></li>
-  </ol>
+<%if params[:add_task]  %>
+  <section class="content-header">
+    <h1 style="margin-left: 230px;float: left">
+      Dashboard
+      <small>Control panel</small>
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-dashboard"></i>Add Task</a></li>
+      <li class="active">Dashboard</li>
+    </ol>
+  </section>
 
-</section>
-<%end %>
-
-<%if params[:edit_task]%>
+<%else %>
 
   <section class="content-header">
     <h1 style="margin-left: 230px;float: left">
@@ -24,11 +21,11 @@
     <ol class="breadcrumb">
       <li><a href="#"><i class="fa fa-dashboard"></i>Edit Task</a></li>
       <li class="active">Dashboard</li>
-      <li class="active"><%= link_to 'Back', users_path %></li>
     </ol>
-
   </section>
+
 <%end %>
+
 
 
 
@@ -136,9 +133,9 @@
           <%if params[:add_task] %>
 
           <h3 class="box-title"> Add New Task </h3>
-          <% end%>
 
-            <%if params[:edit_task] %>
+
+            <%else %>
 
             <h3 class="box-title"> Edit Task</h3>
 
