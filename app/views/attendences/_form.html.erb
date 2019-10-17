@@ -67,7 +67,7 @@
             </div>
 
              <% %>
-            <% if form.object.check_in.blank?  %>
+            <% if form.object.check_in.blank? || current_user.role.name=="Admin"  %>
 
               <div class="field custom-style_employee">
 
