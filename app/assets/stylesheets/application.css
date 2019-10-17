@@ -11,11 +11,9 @@
  * It is generally better to create a new file per style scope.
 
 
-
-*= require bootstrap-datepicker
+*= require bootstrap.min.css
 *= require _all-skins.min.css
 *= require AdminLTE.min.css
-*= require bootstrap.min.css
 *= require  bootstrap-datepicker.min.css
 *= require  daterangepicker.css
 *= require font-awesome.min.css
@@ -24,7 +22,6 @@
 *= require ionicons.min.css
 *= require custom.scss
 *= require custom.scss
-
  *= require_self
  *= require_tree .
 */
