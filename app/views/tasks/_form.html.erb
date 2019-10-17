@@ -1,17 +1,44 @@
 
+<%if param[:add_task] %>
 <section class="content-header">
   <h1 style="margin-left: 230px;float: left">
     Dashboard
     <small>Control panel</small>
   </h1>
   <ol class="breadcrumb">
-    <li><a href="#"><i class="fa fa-dashboard"></i> Task Edit</a></li>
+    <li><a href="#"><i class="fa fa-dashboard"></i> Add Task</a></li>
     <li class="active">Dashboard</li>
     <li class="active"><%= link_to 'Back', :back %></li>
   </ol>
 
 
 </section>
+  <%end %>
+
+<%if params[:edit_task]%>
+
+  <section class="content-header">
+    <h1 style="margin-left: 230px;float: left">
+      Dashboard
+      <small>Control panel</small>
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-dashboard"></i>Edit Task</a></li>
+      <li class="active">Dashboard</li>
+      <li class="active"><%= link_to 'Back', :back %></li>
+    </ol>
+
+  </section>
+<%end %>
+
+
+
+
+
+
+
+
+
 
 <br>
 
@@ -110,8 +137,9 @@
           <%if params[:add_task] %>
 
           <h3 class="box-title"> Add New Task </h3>
+            <% end%>
 
-            <% else %>
+            <% if params[:edit_task] %>
             <h3 class="box-title"> Edit Task</h3>
 
             <%end%>
