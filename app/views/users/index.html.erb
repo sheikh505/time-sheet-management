@@ -19,24 +19,8 @@
       </section>
 
 
-      <div class="container" >
-        <% if flash[:notice] %>
-          <div class="alert alert-success" id="success-alert" style=" width:40%;height:50px;float: left;margin-left:40px">
-            <button type="button" class="close" data-dismiss="alert">x</button>
-            <strong>Success! </strong>
-            <%= notice %>
-          </div>
-        <% end %>
-        <% if flash[:error] %>
-          <div class="alert alert-danger" id="success-alert" style="width:40%;height:50px;float:left;margin-left:40px">
-            <button type="button" class="close" data-dismiss="alert">x</button>
-            <!--            <strong>ohh no! </strong>-->
-            <%= flash[:error] %>
-          </div>
-        <% end %>
-      </div>
 
-      
+
       <!-- Main content -->
 
         <!-- Small boxes (Stat box) -->
@@ -131,22 +115,22 @@
 
 
 
-<!--            <div class="container" >-->
-              <%# if flash[:notice] %>
-<!--                <div class="alert alert-success" id="success-alert" style=" width:40%;height:50px;float: left;margin-left:40px">-->
-<!--                  <button type="button" class="close" data-dismiss="alert">x</button>-->
-<!--                  <strong>Success! </strong>-->
-                  <%#= notice %>
-<!--                </div>-->
-              <%# end %>
-              <%# if flash[:error] %>
-<!--                <div class="alert alert-danger" id="success-alert" style="width:40%;height:50px;float:left;margin-left:40px">-->
-<!--                  <button type="button" class="close" data-dismiss="alert">x</button>-->
-<!--                  <!--            <strong>ohh no! </strong>-->-->
-                  <%#= flash[:error] %>
-<!--                </div>-->
-              <%# end %>
-<!--            </div>-->
+            <div class="container" >
+              <% if flash[:notice] %>
+                <div class="alert alert-success" id="success-alert" style=" width:40%;height:50px;float: left;margin-left:40px">
+                  <button type="button" class="close" data-dismiss="alert">x</button>
+                  <strong>Success! </strong>
+                  <%= notice %>
+                </div>
+              <% end %>
+              <% if flash[:error] %>
+                <div class="alert alert-danger" id="success-alert" style="width:40%;height:50px;float:left;margin-left:40px">
+                  <button type="button" class="close" data-dismiss="alert">x</button>
+                  <!--            <strong>ohh no! </strong>-->
+                  <%= flash[:error] %>
+                </div>
+              <% end %>
+            </div>
 
 
 
