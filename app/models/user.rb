@@ -11,13 +11,13 @@ class User < ApplicationRecord
 
     # //************************  user Association   *******************************//
 
-  has_many :attendences
+  has_many :attendences ,dependent: :destroy
 
   belongs_to :role
 
   has_and_belongs_to_many :projects,:dependent => :destroy
 
-  has_and_belongs_to_many :tasks
+  has_and_belongs_to_many :tasks ,  :dependent => :destroy
 
 
 
