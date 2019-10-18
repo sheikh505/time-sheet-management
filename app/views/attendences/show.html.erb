@@ -67,17 +67,17 @@
 
           <p>
             <strong>Datee:</strong>
-            <%= @attendence.datee %>
+            <%= @attendence.datee.strftime("%d/%m/%Y %A") %>
           </p>
 
           <p>
             <strong>Check in:</strong>
-            <%= @attendence.check_in %>
+            <%= @attendence.check_in.strftime("%H:%M %S") %>
           </p>
 
           <p>
             <strong>Check out:</strong>
-            <%= @attendence.check_out %>
+            <%= @attendence.check_out.strftime("%H: %M %S") if @attendence.check_out.present? %>
           </p>
 
           <p>
