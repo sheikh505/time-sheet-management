@@ -62,12 +62,14 @@
             <% @attendences.each do |attendence| %>
 
               <tr>
-                <td><%= attendence.datee %></td>
+                <td><%= attendence.datee.strftime("%d/%m/%Y %A") %></td>
                 <td><%= attendence.user.id %></td>
                 <td><%=image_tag(attendence.user.image.url,size:'40x40') if attendence.user.image.present?%></td>
                 <td><%= attendence.user.name %></td>
-                <td><%= attendence.check_in  unless attendence.status == false %></td>
-                <td><%= attendence.check_out %></td>
+                <td><%= attendence.check_in.strftime("%H:%M %S")  unless attendence.status == false %></td>
+
+
+                <td><%= attendence.check_out.strftime("%H:%M %S ") if attendence.check_out.present?   %></td>
                 <td><%= attendence.status %></td>
 
                 <td> <%=link_to "Show",attendence_path(attendence),class:"btn btn-sm btn-primary", style:"color:white"%></td>
