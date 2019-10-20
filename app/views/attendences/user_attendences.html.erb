@@ -252,10 +252,10 @@
                 <tr>
 
 
-                  <td><%=uu.datee %></td>
+                  <td><%=uu.datee.strftime("%d/%m/%Y %A") %></td>
 
-                  <td><%=uu.check_in if  uu.status == true  %> </td>
-                  <td><%=uu.check_out   %> </td>
+                  <td><%=uu.check_in.strftime("%H:%M %S") if  uu.status == true  %> </td>
+                  <td><%=uu.check_out.strftime("%H:%M %S") if uu.check_out.present?   %> </td>
                   <td><%=uu.status %></td>
 
                   <%if (uu.check_in.present?) && (uu.check_out.blank?) &(uu.datee.today?)     %>
