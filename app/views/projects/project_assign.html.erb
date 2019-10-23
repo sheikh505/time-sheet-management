@@ -18,8 +18,7 @@
 <br>
 
 
-
-
+<%# if @user_project_assign.projects.where(id: project.id).any?  %>
 
 <div class="container">
 
@@ -119,6 +118,7 @@
 </div>
 
 </div>
+<%#end %>
 
 
 
