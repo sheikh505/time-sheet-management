@@ -7,7 +7,7 @@ ruby '2.6.1'
 
 gem 'rails', '~> 5.2.3'
 gem 'devise'
-gem 'carrierwave', '~> 2.0'
+gem 'carrierwave', '~> 2.1'
 gem 'bootstrap-sass', '3.3.7'
 gem 'jquery-rails'
 gem "font-awesome-rails"
